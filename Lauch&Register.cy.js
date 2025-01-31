@@ -1,0 +1,20 @@
+describe('Launch and login', () => {
+  it('Login functionality test', () => {
+    cy.visit('https://parabank.parasoft.com/')
+    cy.get('#loginPanel > :nth-child(3) > a').click()
+    cy.get("input[id='customer.firstName").type('David')
+    cy.get("input[id='customer.lastName']").type('David')
+    cy.get("input[id='customer.address.street']").type('test')
+    cy.get("input[id='customer.address.city']").type('test')
+    cy.get("input[id='customer.address.state']").type('test')
+    cy.get("input[id='customer.address.zipCode']").type('123457')
+    cy.get("input[id='customer.phoneNumber']").type('00000000000')
+    cy.get("input[id='customer.ssn']").type('000000000000')
+    cy.get("input[id='customer.username']").type('user1')
+    cy.get("input[id='customer.password']").type('admin1')
+    cy.get("#repeatedPassword").type('admin1')
+
+    cy.get("input[value='Register']").should('be.visible')
+    cy.get("input[value='Register']").click()
+  })
+})
